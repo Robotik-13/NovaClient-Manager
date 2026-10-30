@@ -1,0 +1,42 @@
+name: NovaClient Manager test
+
+on:
+  push:
+    branches: [novaclient-manager-dev]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v6
+        with:
+          cache-provider: basic
+
+      - name: Build debug Manager
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bash ./gradlew :app:assembleDebug --no-daemon
+
+      - name: Upload Manager APK
+        uses: actions/upload-artifact@v7
+        with:
+          name: novaclient-manager-debug
+          path: app/build/outputs/apk/debug/*.apk
+          if-no-files-found: error

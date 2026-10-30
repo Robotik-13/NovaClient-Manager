@@ -24,17 +24,17 @@ class PreferenceManager(context: Context, paths: PathManager) :
 
     var monet by booleanPreference("monet", false)
 
-    var isDeveloper by booleanPreference("is_developer", false)
+    var isDeveloper by booleanPreference("is_developer", true)
 
     var autoClearCache by booleanPreference("auto_clear_cache", true)
 
     var theme by enumPreference("theme", Theme.SYSTEM)
 
-    var updateDuration by enumPreference("update_duration", UpdateCheckerDuration.HOURLY)
+    var updateDuration by enumPreference("update_duration", UpdateCheckerDuration.DISABLED)
 
-    var moduleLocation by filePreference("module_location", paths.moduleApk)
+    var moduleLocation by filePreference("module_location", java.io.File("/storage/emulated/0/Download/NovaClient/novaclient-loader-debug.apk"))
 
-    var patchBundleLocation by stringPreference("patch_bundle_location", "")
+    var patchBundleLocation by stringPreference("patch_bundle_location", "/storage/emulated/0/Download/NovaClient/novaclient.reseam")
 
     var installMethod by enumPreference("install_method", InstallMethod.DEFAULT)
 

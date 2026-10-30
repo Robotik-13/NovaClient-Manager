@@ -19,18 +19,18 @@ android {
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "app.valenced.manager"
+        applicationId = "app.novaclient.manager"
         minSdk = 28
         targetSdk = 34
         versionName = version.toString()
         versionCode = versionName!!.removePrefix("v").split("-").first().replace(".", "").toInt()
 
-        buildConfigField("String", "MOD_NAME", "\"Valenced\"")
-        buildConfigField("String", "REPO", "\"Valenced/valenced\"")
+        buildConfigField("String", "MOD_NAME", "\"NovaClient\"")
+        buildConfigField("String", "REPO", "\"Robotik-13/NovaClient\"")
         buildConfigField("String", "BUNDLE_PUBLIC_KEY", "\"$patchesPublicKey\"")
         buildConfigField("String", "ORG_LINK", "\"https://github.com/Valenced\"")
         buildConfigField("String", "INVITE_LINK", "\"https://discord.com/invite/dtBTQHYSx4\"")
-        buildConfigField("String", "MODDED_APP_PACKAGE_NAME", "\"app.valenced\"")
+        buildConfigField("String", "MODDED_APP_PACKAGE_NAME", "\"app.novaclient\"")
         buildConfigField("int", "MODDED_APP_ICON", "0xFF37EBFF")
         buildConfigField("int", "MODDED_APP_ICON_ALPHA", "0xFFFBB33C")
         buildConfigField("int", "MODDED_APP_ICON_OTHER", "0xFFD3575E")
